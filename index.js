@@ -156,7 +156,136 @@ myFunc(function(name) {
     console.log(name);
 });
 
-// using an arrow function rather
-myFunc((name) => {
+// using an arrow function rather (which is the common way to define call back function)
+myFunc(name => {
     console.log(name);
 });
+
+
+// FOREACH - array method: help us to loop thorugh the array and do something for each of the items in it.
+let people = ['oamr', 'levis', 'gedeon', 'azalie'];
+
+people.forEach(name => {
+    console.log(`My name is ${name.toLocaleUpperCase()}, I am a friend of Aimable`);
+});
+
+
+// another example of using a callback function and foreach array method
+let languages = ['Python', 'JavaScript', 'C', 'SQL'];
+// let's create a call back function to be passed in the foreach method
+// Le'ts also anticipate the second argument which forEach provide for us
+// which is 'index' of the current item in the array
+const helloLanguage = (name, index) => {
+    console.log(`${index}: Hello, ${name}!`);
+};
+
+// Let's greet every language
+languages.forEach(helloLanguage);
+
+
+// const li = document.querySelector('#hi');
+// console.log(li.textContent);
+
+// today's first challenge.
+// add friends to the the ul tag in html
+
+const ul = document.querySelector('.friends');
+
+const friends = ['Levis', 'James', 'Alex', 'Rachel', 'Uwase'];
+
+friends.forEach(friend => {
+    ul.innerHTML += `<li style="color: blue">${friend}</li>`;
+})
+
+
+// OBJECTs in JS
+// how do we create object in js
+const friend = {
+    name: "Aimable",
+    lastName: "Nkurikiyimana",
+    age: 22,
+    height: 170,
+    skinColor: 'Black',
+    friendsNames: ['levis', 'Justice', 'Karake', 'Owen'],
+
+    // adding methods
+    sayHello: () => {
+        console.log("Hello, Aimable");
+    },
+
+    // using the this
+    greetFriends: () => {
+        // lets gree all friends
+        friend.friendsNames.forEach(name => {
+            console.log(`Hello ${name}`);
+        })
+    },
+
+
+    // another function that takes value
+    sayHi: (greeting) => {
+        console.log(`${greeting}, ${friend.name}`);
+    },
+
+    // display info about the object
+    displayInfo: () => {
+        // becuse this is under the scope of an arrow function
+        // this key is going to behave in away we don't intend it to.
+        // this will refer to window
+        // and if window (global object - context) doesn't have the friendsNames
+        // we will be informed that friendsNames is 'undefined'.
+        console.log(this.friendsNames);
+    },
+
+    // let's correct it with using normal function (But with shorthand)
+    // without using the displayinfromatio: function() we can do -->
+    displayInformation() {
+        console.log(this.friendsNames);
+    }
+}
+
+friend.displayInfo()        //this behaves not as intended
+friend.displayInformation() //this behaves as intended
+
+// how do we reference some of the properties of an object
+// using the '.key' and the ['key']
+// using .
+console.log(friend.name);
+console.log(friend.age);
+console.log(friend.height);
+
+// using ['key']
+console.log(friend['name']);
+console.log(friend['age']);
+console.log(friend['height']);
+
+
+// say hello
+friend.sayHello();
+
+// calling greetFriends
+friend.greetFriends();
+
+
+friend.sayHi("Wahtsup");
+
+
+// display info
+friend.displayInfo()
+
+
+// the global context is window.
+console.log(this);
+window.console.log("Hello");
+
+this.console.log("heyoo");
+// but this is context dependant.
+
+
+
+// this doesn't behave the same when working with function() and () =>
+// when using function() .. this is automatically set to the current object inwhich its being used
+// while when using the () => arrow function this remains the window object.
+// its important to know becaue that can cause un intended errors.
+// there's even a shorthand form of describing methods in object literals .. its what's prefered..
+
