@@ -9,6 +9,7 @@ do {
 } while (i < -1);
 
 
+// ------------ SWITCH ---------
 // what's a switch
 let day = 'Friday';
 
@@ -40,7 +41,7 @@ let arrayFriends = ['James', 'Karake', 'Braza-Alex'];
 
 
 
-// FUNCTIONS.
+// ---------- FUNCTIONS.-----------------------
 // What's a a function in JS.
 // its under object data type..
 
@@ -86,7 +87,8 @@ const changeAnge = function(){
 changeAnge(); // age = 21
 console.log(age); // age = 21
 
-// ARROW FUNCTIONS (RECENT IN THE LANGUAGE)
+
+// ---------- ARROW FUNCTIONS (RECENT IN THE LANGUAGE) -------------
 
 const greetMe = () => {
     console.log("Hello You!");
@@ -130,6 +132,7 @@ const billA = (products, tax) => {
 };
 
 
+// ------------ CALLBACK FUNCTION ---------------
 // What's a callback function.
 // its simplye a function passed to another fucntion to be called later.
 // ex
@@ -162,7 +165,8 @@ myFunc(name => {
 });
 
 
-// FOREACH - array method: help us to loop thorugh the array and do something for each of the items in it.
+//  ------------- FOREACH --------
+//  forEach - array method: help us to loop thorugh the array and do something for each of the items in it.
 let people = ['oamr', 'levis', 'gedeon', 'azalie'];
 
 people.forEach(name => {
@@ -198,7 +202,7 @@ friends.forEach(friend => {
 })
 
 
-// OBJECTs in JS
+// ------------- OBJECTs in JS -------------------
 // how do we create object in js
 const friend = {
     name: "Aimable",
@@ -239,7 +243,7 @@ const friend = {
 
     // let's correct it with using normal function (But with shorthand)
     // without using the displayinfromatio: function() we can do -->
-    displayInformation() {
+    displayInformation() { //this is probably the one i can prefer.. hhh
         console.log(this.friendsNames);
     }
 }
@@ -282,10 +286,84 @@ this.console.log("heyoo");
 // but this is context dependant.
 
 
-
-// this doesn't behave the same when working with function() and () =>
-// when using function() .. this is automatically set to the current object inwhich its being used
+// ---------- IMPORTANT NOTES ON 'this': --------------
+// ;this' doesn't behave the same when working with function() and () =>
+// when using function() .. 'this' is automatically set to the current object inwhich its being used
 // while when using the () => arrow function this remains the window object.
 // its important to know becaue that can cause un intended errors.
 // there's even a shorthand form of describing methods in object literals .. its what's prefered..
 
+
+// COMMON WAY OF STORING DATA IAND RETRIEVING DATA FOR WEB => ARRAY OF OBJECTS.
+
+
+
+// ------------  MATH OBJECT --------------
+// What can we do with the math object
+// alot hhh
+// examples
+
+// math object
+
+console.log(Math);
+
+const num = 8.8;
+console.log(Math.round(num));  // rounds down or up
+console.log(Math.ceil(num));  // rounds up always
+console.log(Math.floor(num)); // round down always
+console.log(Math.trunc(num)); // alywas remove the trailing decimal.
+
+// what's probably most fun hh the 'random'
+console.log(Math.random()); //always giving you a number in range(0-1)
+
+// Let's say we want a number btn 0-10
+console.log(Math.round(Math.random() * 10));
+
+
+
+// ---------- PRIMITIVE VS REFERENCE 'data' TYPES ------------
+// primitive examples: symbols, null, undefined, numbers, string, bool
+// reference examples: object ex: functions, arrays, mathobject etc ..
+
+// what's the difference ..  => the way they are stored.
+// primitive 'values' are stored on what's called the "stack" on memory
+// reference types 'values' are stored on 'the heap' BUT..
+// the pointers that points TO THEM are stored on the 'stack' (with variable name tags.)
+
+// how does that affect the way we code..
+// let's take an example
+let scoreOne = 100;
+
+let scoreTwo = scoreOne;
+
+console.log(scoreOne);
+console.log(scoreTwo);
+
+
+scoreOne = 150;
+
+console.log(scoreOne);
+console.log(scoreTwo);
+
+// let's try to do the same with arrays.
+
+let names = ['Mario', 'Shaun', 'Shane'];
+let namesCpy = names;
+
+console.log(names);
+console.log(namesCpy);
+
+// let's edit the first original names
+// names.concat(['Levis', 'Omar']);
+names.push('Karake');
+console.log(names)
+
+// but hwat happend to our copy?
+console.log(namesCpy)
+
+// we see that namesCpy was also changed why ?
+// because names is storing the pointer not the value.
+// so the code namesCpy = names; do not assign the array to the namesCpy
+// but rather the pointer that points to the array (the exact array names have).
+// therefore anychange to names or namesCpy will affect the array because the have the
+// same pointer that pointing to the same array in memory.
