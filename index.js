@@ -117,3 +117,17 @@ console.log(p.classList);
 // let's try to change the value of class
 p.className = 'error';
 p.className = 'success';
+
+
+// where can we use toggle ?
+// on case where if the use clicks the button it takes a differnt color
+// let's say grey and black
+// Let's play with toogle
+
+
+
+// reflect on the Parent Sibling stuff
+
+
+
+// -------- EVENTLISTENERS ----------
