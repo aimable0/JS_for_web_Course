@@ -1,0 +1,13 @@
+
+.error, .success {
+    border: 2px dotted rgb(8, 170, 8);
+    padding: 20px;
+}
+.success {
+    color: rgb(18, 171, 18);
+
+}
+
+.error {
+    color: red;
+}
