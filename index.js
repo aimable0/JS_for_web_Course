@@ -106,4 +106,14 @@ uwase.style['color'] = "";
 uwase.style['font-weight'] = "";
 
 // ADDING AND CHANGING CLASSES
-// today's challenge -- create to class error and succes and alternate them on a p
+// today's challenge -- create to class error and succes and alternate
+
+
+// check the classlist
+const p = document.querySelector('p.success');
+
+console.log(p.classList);
+
+// let's try to change the value of class
+p.className = 'error';
+p.className = 'success';

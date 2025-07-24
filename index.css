@@ -1,11 +1,10 @@
 
 .error, .success {
-    border: 2px dotted rgb(8, 170, 8);
+    border: 2px dotted grey;
     padding: 20px;
 }
 .success {
     color: rgb(18, 171, 18);
-
 }
 
 .error {
