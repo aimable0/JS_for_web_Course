@@ -45,11 +45,20 @@ form.addEventListener('submit', (e) => {
 
     // check for numbers
     if (passwordIsValid(patternThree, password)) {
-        console.log("Passowrd contains: numbers")
+        console.log("Passowrd contains: numbers");
     } else {
-        console.log("password doesn't contain numbers")
+        console.log("password doesn't contain numbers");
     }
 
+
+    // check for dollar sign
+    const patternFour = /\$/;
+    console.log(password.search(patternFour));
+    if (password.search(patternFour)) {
+        console.log("The password contains the '$' sign at index", password.search(patternFour))
+    } else {
+        console.log("The password contains no '$ sign' ");
+    }
 
 })
 
