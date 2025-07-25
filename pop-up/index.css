@@ -1,0 +1,91 @@
+button {
+    display: block;
+    margin: 10px auto;
+    font-family: 'Franklin Gothic Normal', 'Arial Narrow', Arial, sans-serif;
+    border: 0;
+    padding: 1em 2em;
+    font-weight: 600;
+    letter-spacing: .5px;
+    background-color: antiquewhite;
+    color: rgb(105, 67, 18);
+}
+
+button:hover,
+button:focus {
+    cursor: pointer;
+    background-color: rgb(141, 116, 84);
+    color: rgb(248, 248, 247);
+}
+
+.popup-wrapper {
+    background-color: rgba(0, 0, 0, .3);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: none;
+}
+
+.popup {
+    background-color: rgb(247, 247, 247);
+    padding: 1em 2em;
+    width: 40%;
+    margin: 15% auto;
+    max-width: 300px;
+    /* position: relative; */
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    position: relative;
+}
+
+.close {
+    background-color: rgb(128, 95, 52);
+    width: fit-content;
+    padding: 0 5px;
+    color: white;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 5px 5px;
+}
+
+.close:hover,
+.close:focus {
+    cursor: pointer;
+    background-color: antiquewhite;
+    color: rgb(70, 48, 20);
+}
+
+a {
+    display: block;
+    margin: 20px auto;
+    width: fit-content;
+    text-decoration: none;
+    color: rgb(122, 85, 36);
+    font-weight: 600;
+    padding: .5em 1em;
+    background-color: rgb(134, 110, 79);
+    color: antiquewhite;
+    color: rgb(247, 239, 239);
+}
+
+a:hover,
+a:focus {
+    text-decoration: underline;
+    color: white;
+}
+
+h1 {
+    color: rgb(134, 110, 79);
+}
+
+
+span {
+    color: rgb(122, 85, 36);
+    font-weight: bold;
+}
+
+p {
+    font-weight: 500;
+}

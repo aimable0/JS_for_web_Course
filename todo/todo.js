@@ -4,7 +4,6 @@ const ul = document.querySelector('ul');
 const clickMeButton = document.querySelector('button');
 
 clickMeButton.addEventListener('click', () => {
-    alert("You have Added a new task");
     const li = document.createElement('li');
     li.textContent = "New task";
     ul.prepend(li);
@@ -26,19 +25,27 @@ const tasks = document.querySelectorAll('li');
 
 // ex:
 // let's create a child event and make it bubble to run the parent's call back function
-ul.addEventListener('click', (e) => {
-    console.log(e.target);
-    console.log("The event bubbled to here");
-});
-
 
 // now let' stop the propagation
 
-tasks.forEach(task => {
-    task.addEventListener('click', e => {
-        console.log("Hey I was clicked");
+// tasks.forEach(task => {
+//     task.addEventListener('click', e => {
+//         console.log("Hey I was clicked");
 
-        // now let's stop the bubbling
-        e.stopPropagation();
-    });
+//         // now let's stop the bubbling
+//         e.stopPropagation();
+//     });
+// });
+
+
+// EVENT DELEGATION
+
+ul.addEventListener('click', e => {
+    console.log(e.target);
+
+    if (e.target.tagName === 'LI') {
+        e.target.remove();
+    } else {
+        console.log(e.target);
+    }
 });
