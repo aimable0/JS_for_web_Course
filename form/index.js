@@ -29,10 +29,10 @@ form.addEventListener('submit', (e) => {
     const patternThree = /[0-9]{1,}/;
 
     const password = form.userpassword.value;
-    if (passwordIsValid(pattern, password) && passwordIsValid(patternTwo, password) && passwordIsValid(patternThree, password)){
-        console.log("Password is valid");
+    if (passwordIsValid(pattern, password) && passwordIsValid(patternTwo, password) && passwordIsValid(patternThree, password) && password.length >= 8){
+        console.log("Password is Valid");
     } else {
-        console.log("Password is invalid");
+        console.log("Password is Invalid");
     }
 
     // check for '@' in the password
