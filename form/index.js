@@ -17,8 +17,8 @@ const passwordIsValid = (pattern, password) => {
 }
 
 form.addEventListener('submit', (e) => {
-    console.log(e);
-    e.preventDefault();
+    // e.preventDefault();
+    // console.log(e);
     console.log(`Username: ${form.username.value}`);
     console.log(`Password: ${form.userpassword.value}`);
 
@@ -61,5 +61,46 @@ form.addEventListener('submit', (e) => {
     }
 
 })
+
+
+// Lets try a live check.
+// if the password of the user is right we put it in green and the borders are made green
+
+
+// Let's put the KeyboardEvent to use
+// let's console.eveyr key pressed
+
+const userPassword = document.querySelector('#userpassword');
+
+userPassword.addEventListener('keyup', (e) => {
+    console.log("key clicked: ", e.key)
+        // password check (password must contain @)
+    const pattern = /[a-zA-Z]{1,}/;
+    const patternTwo = /@|!|#/;
+    const patternThree = /[0-9]{1,}/;
+
+
+    let passwordhint = document.querySelector('.passwordhint');
+    const password = form.userpassword.value;
+    if (passwordIsValid(pattern, password) && passwordIsValid(patternTwo, password) && passwordIsValid(patternThree, password) && password.length >= 8){
+        console.log("Password is Valid");
+        userPassword.setAttribute('class', 'valid');
+        if (passwordhint) {
+            passwordhint.remove();
+        }
+
+    } else {
+        userPassword.setAttribute('class', 'invalid');
+
+        // now let's give a short hint to why the password is invalid.
+        passwordhint.textContent = "Hint: Password must contain atleast 8character with numbers and special character";
+        console.log("Password is Invalid");
+        e.preventDefault();
+    }
+})
+
+// how can we remove the error and success on password after
+// something that I will look into..
+
 
 

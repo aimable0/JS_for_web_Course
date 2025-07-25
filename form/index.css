@@ -8,12 +8,13 @@ h1 {
 }
 
 form {
-    height: 200px;
+    height: fit-content;
     width: 300px;
     background-color: rgba(136, 143, 126, 0.397);
     margin: 0px auto;
     padding-top: 50px;
     border-radius: 4px;
+    padding-bottom: 1px;
 }
 
 input {
@@ -33,12 +34,15 @@ input:focus {
 }
 
 #submit {
+    display: block;
     padding: 10px 25px;
     text-transform: capitalize;
     margin-top: 15px;
     color: rgb(87, 92, 81);
     letter-spacing: .5px;
-
+    margin-bottom: 25px;
+    /* background-color: green; */
+    background-color: rgb(181, 182, 180);
 }
 
 #submit:hover, #submit:focus {
@@ -47,5 +51,27 @@ input:focus {
 }
 
 
+.valid {
+    color: rgb(33, 168, 33);
+}
 
+.valid:focus {
+    border: 2px solid rgb(25, 173, 25);
+}
 
+.invalid {
+    color: rgb(235, 114, 114);
+}
+
+.invalid:focus {
+    border: 2px solid rgb(221, 125, 125);
+}
+
+/* password */
+.passwordhint {
+    font-size: 13px;
+    text-align: center;
+    width: 200px;
+    margin: 0px auto;
+    color: rgb(233, 77, 77);
+}
