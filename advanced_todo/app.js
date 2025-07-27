@@ -5,7 +5,7 @@ console.log("hello world!");
 // Let's create a sort of storage for our todos
 let todosList = [];
 const form = document.querySelector('form');
-const ul = document.querySelector('.todo-tasks');
+const ul = document.querySelector('.tasks');
 
 form.addEventListener('submit', (e) => {
     e.stopPropagation();
@@ -25,11 +25,13 @@ todosList.forEach((task) => {
 
 // DISPLAYING TASK ON THE WEB
 form.addEventListener('submit', (e) => {
-    todosList.forEach(task => {
+    e.preventDefault();
 
-        // empty the ul before adding stuff to avoid duplicity
+    // grabbing the task provided by user.
+    let task = e.target.task.value;
 
-        ul.ch
+
+    if (task) {
 
         const li = document.createElement('li');
         const p = document.createElement('p');
@@ -45,5 +47,11 @@ form.addEventListener('submit', (e) => {
         li.appendChild(p);
         li.appendChild(button);
         ul.appendChild(li);
-    })
+    }
+
+    e.target.task.value = "";
 })
+
+
+
+// ---- DELETING TODO -----
