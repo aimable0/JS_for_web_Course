@@ -115,10 +115,41 @@ const scoresTwo = [10, 20, 75, 40, 50, 60, 10, 90];
 
 const above50Count = scoresTwo.reduce((count, score) => {
     if (score > 50) {
-        return count++;
+
+        return count + 1;
+
+        // why is this 'return count++' giving me zero  ?
+        // This has to do with how var++ and ++var behave
+        // var++ (post-increment operator): returns the current value of var and then increments it after (still stored in var)
+        // ++var (pre-increment operator): increments the value of var and returns it.
     } else {
         return count;
     }
 }, 0)
 
 console.log(above50Count);
+
+
+// ------ CONCEPT: POST-INCREMENT AND PRE-INCREMENT OPERATOR -----
+let count = 0;
+console.log(`before 'count++' count => ${count}`);
+let result = count++;
+console.log(`After the statement 'let result = count++': result => ${result} , count => ${count}`)
+// I would expect
+// console.log(count) ==> 0
+//console.log(result) ==> 1
+// but that's now what happens
+// the 'count++' statement behaves as follows:
+// 1. it first returns the current value of count which is 0
+// so reult will be storing zero.
+// 2. it afterwards goes on and increment the value of the variable 'count' with 1
+// so count will be storing 1.
+
+
+// but that would change to what I would expect
+// using the ++count;
+// example
+let count1 = 0
+let result1= ++count1;
+console.log(`After the statement 'let result = ++count': result => ${result1} , count => ${count}`)
+
