@@ -66,3 +66,7 @@ button {
     border: 0;
     color: white;
 }
+
+.filtered_out {
+    display: none !important;
+}
